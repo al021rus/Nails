@@ -1,11 +1,12 @@
-package com.example.nails
+package com.example.nails.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import com.example.nails.R
 import com.example.nails.databinding.ActivityMainBinding
-import com.example.nails.fragments.ServicesFragment
+import com.example.nails.presentation.fragments.ServicesFragment
 
 class MainActivity : FragmentActivity() {
         fun navigateToFragment(fmt: Fragment) {

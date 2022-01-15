@@ -1,8 +1,8 @@
-package com.example.nails.network
+package com.example.nails.data.network
 
-import com.example.nails.model.Master
-import com.example.nails.model.Review
-import com.example.nails.model.Service
+import com.example.nails.domain.model.Master
+import com.example.nails.domain.model.Review
+import com.example.nails.domain.model.Service
 import retrofit2.http.GET
 
 interface RestApi {
