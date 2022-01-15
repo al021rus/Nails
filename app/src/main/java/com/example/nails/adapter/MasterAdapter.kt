@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.nails.R
 import com.example.nails.model.Master
 
@@ -55,7 +56,12 @@ class MasterAdapter (
             positionName.text = master.positionName
             expTime.text = master.ExpTime
             workTime.text = master.workTime
-            imageMaster.setImageResource(master.imageMaster)
+            Glide
+                .with(itemView)
+                .load(master.imageMasterURL)
+                .centerCrop()
+                .placeholder(R.drawable.ic_image)
+                .into(imageMaster)
         }
     }
 }

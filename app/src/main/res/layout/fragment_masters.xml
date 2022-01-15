@@ -29,7 +29,7 @@
         android:background="@color/white"
         android:src="@drawable/ic_search"
         app:layout_constraintStart_toEndOf="@id/searchString"
-        app:layout_constraintBottom_toTopOf="@id/rvMasters"/>
+        app:layout_constraintBottom_toTopOf="@id/RefreshMasters"/>
 
     <TextView
         android:id="@+id/Brandname"
@@ -66,16 +66,28 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:paddingHorizontal="10dp"
-        android:id="@+id/rvMasters"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/RefreshMasters"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
+        android:paddingHorizontal="10dp"
         app:layout_constraintTop_toBottomOf="@+id/searchString"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMasters"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         tools:itemCount="5"
         tools:listitem="@layout/item_master"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

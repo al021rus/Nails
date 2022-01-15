@@ -1,9 +1,10 @@
 package com.example.nails.model
 
-import androidx.annotation.DrawableRes
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Master(
-    @DrawableRes val imageMaster: Int,
+    val imageMasterURL: String,
     val nameMaster: String,
     val positionName : String,
     val ExpTime: String,
