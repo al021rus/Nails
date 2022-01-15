@@ -1,11 +1,14 @@
 package com.example.nails.domain.model
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
 import kotlinx.serialization.Serializable
 
 @Serializable
+@Entity(primaryKeys = ["imageServiceURL","nameService","priceCount","placeCount"])
 data class Service(
-    val imageServiceURL : String,
-    val nameService : String,
-    val priceCount : String,
-    val placeCount : String,
+    @ColumnInfo val imageServiceURL : String,
+    @ColumnInfo val nameService : String,
+    @ColumnInfo val priceCount : String,
+    @ColumnInfo val placeCount : String,
 )
