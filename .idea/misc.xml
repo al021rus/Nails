@@ -7,6 +7,7 @@
         <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/drawable/ic_profile.xml" value="0.290625" />
         <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/activity_authorization.xml" value="0.264" />
         <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/activity_brand.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/activity_masters.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/activity_products.xml" value="0.264" />
         <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/activity_profile.xml" value="0.264" />
@@ -14,6 +15,11 @@
         <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/activity_reviews.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/activity_services.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/activity_splash.xml" value="0.264" />
+        <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/fragment_authorization.xml" value="0.264" />
+        <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/fragment_masters.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/fragment_profile.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/fragment_registration.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/fragment_reviews.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/item_brand.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/item_master.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/M3d1vh/AndroidStudioProjects/Nails/app/src/main/res/layout/item_product.xml" value="0.27447916666666666" />
