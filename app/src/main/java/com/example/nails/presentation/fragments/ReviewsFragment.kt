@@ -1,4 +1,4 @@
-package com.example.nails.fragments
+package com.example.nails.presentation.fragments
 
 import android.graphics.Color
 import android.os.Bundle
@@ -6,11 +6,11 @@ import android.view.View
 import android.view.View.GONE
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.nails.MainActivity
+import com.example.nails.presentation.MainActivity
 import com.example.nails.R
-import com.example.nails.adapter.ReviewAdapter
+import com.example.nails.presentation.adapter.ReviewAdapter
 import com.example.nails.databinding.FragmentReviewsBinding
-import com.example.nails.network.NetworkService
+import com.example.nails.data.network.NetworkService
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.*
 import kotlinx.serialization.ExperimentalSerializationApi

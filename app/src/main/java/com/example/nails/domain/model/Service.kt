@@ -1,4 +1,4 @@
-package com.example.nails.model
+package com.example.nails.domain.model
 
 import kotlinx.serialization.Serializable
 

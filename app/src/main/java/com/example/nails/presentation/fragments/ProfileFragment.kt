@@ -1,9 +1,9 @@
-package com.example.nails.fragments
+package com.example.nails.presentation.fragments
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.example.nails.MainActivity
+import com.example.nails.presentation.MainActivity
 import com.example.nails.R
 import com.example.nails.databinding.FragmentProfileBinding
 

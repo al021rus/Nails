@@ -1,4 +1,4 @@
-package com.example.nails.fragments
+package com.example.nails.presentation.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -7,10 +7,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nails.*
-import com.example.nails.adapter.ServiceAdapter
+import com.example.nails.presentation.adapter.ServiceAdapter
 import com.example.nails.databinding.FragmentServicesBinding
-import com.example.nails.model.Service
-import com.example.nails.network.NetworkService
+import com.example.nails.domain.model.Service
+import com.example.nails.data.network.NetworkService
+import com.example.nails.presentation.MainActivity
+import com.example.nails.presentation.ScreenState
+import com.example.nails.presentation.onClickFlow
+import com.example.nails.presentation.onRefreshFlow
+import com.example.nails.presentation.viewmodel.ServicesViewModel
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.*
 import kotlinx.serialization.ExperimentalSerializationApi
@@ -21,6 +26,8 @@ class ServicesFragment : Fragment(R.layout.fragment_services){
     companion object{
         fun newInstance() = ServicesFragment()
     }
+    private val brandsViewModel by lazy { ServicesViewModel(requireContext(), lifecycleScope) }
+
     private fun setLoading(isLoading: Boolean) = with(binding) {
         progressBar.isVisible = isLoading && !rvServices.isVisible
         RefreshServices.isRefreshing = isLoading && rvServices.isVisible
@@ -57,6 +64,7 @@ class ServicesFragment : Fragment(R.layout.fragment_services){
         )
             .flatMapLatest {loadServices()}
             .distinctUntilChanged()
+            brandsViewModel.screenState
             .onEach{
                 when(it){
                     is ScreenState.DataLoaded -> {
@@ -76,6 +84,16 @@ class ServicesFragment : Fragment(R.layout.fragment_services){
                 }
             }
             .launchIn(lifecycleScope)
+
+        if(savedInstanceState == null){
+            brandsViewModel.loadData()
+        }
+        binding.RefreshServices.setOnRefreshListener {
+            brandsViewModel.loadData()
+        }
+        binding.RefreshServices.setOnRefreshListener {
+            brandsViewModel.loadData()
+        }
 
     }
     @ExperimentalSerializationApi

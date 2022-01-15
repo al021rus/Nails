@@ -1,4 +1,4 @@
-package com.example.nails
+package com.example.nails.presentation
 
 import android.view.View
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout

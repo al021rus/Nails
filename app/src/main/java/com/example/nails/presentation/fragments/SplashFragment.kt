@@ -1,4 +1,4 @@
-package com.example.nails.fragments
+package com.example.nails.presentation.fragments
 
 import android.os.Bundle
 import android.view.View

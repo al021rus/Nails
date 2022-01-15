@@ -1,11 +1,11 @@
-package com.example.nails.adapter
+package com.example.nails.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nails.model.Review
+import com.example.nails.domain.model.Review
 import com.example.nails.R
 
 typealias OnReviewClickListener = (Review) -> Unit
