@@ -1,71 +1,90 @@
 package com.example.nails.fragments
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.view.View.GONE
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.nails.MainActivity
-import com.example.nails.R
+import com.example.nails.*
 import com.example.nails.adapter.ServiceAdapter
 import com.example.nails.databinding.FragmentServicesBinding
+import com.example.nails.model.Service
 import com.example.nails.network.NetworkService
-import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.*
 import kotlinx.serialization.ExperimentalSerializationApi
 
 class ServicesFragment : Fragment(R.layout.fragment_services){
     private lateinit var binding: FragmentServicesBinding
-    private val coroutineExceptionHandler = CoroutineExceptionHandler{ context,exception ->
-        exception.printStackTrace()
-        binding.progressBar.visibility = GONE
-        binding.rvServices.adapter =
-            ServiceAdapter(listOf()) {}
-        binding.RefreshServices.isRefreshing = false
-        Snackbar.make(
-            requireView(),
-            getString(R.string.error),
-            Snackbar.LENGTH_SHORT
-        ).setBackgroundTint(Color.parseColor("#ED4337"))
-            .setActionTextColor(Color.parseColor("#FFFFFF"))
-            .show()
-    }
-    private val scope =
-        CoroutineScope(Dispatchers.Main + SupervisorJob() + coroutineExceptionHandler)
+
     companion object{
         fun newInstance() = ServicesFragment()
     }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding = FragmentServicesBinding.bind(view)
+    private fun setLoading(isLoading: Boolean) = with(binding) {
+        progressBar.isVisible = isLoading && !rvServices.isVisible
+        RefreshServices.isRefreshing = isLoading && rvServices.isVisible
+    }
+
+    private fun setData(services: List<Service>?) = with(binding){
+        rvServices.isVisible = services != null
+        binding.rvServices.layoutManager = LinearLayoutManager(context)
+        binding.rvServices.adapter =
+            ServiceAdapter(services ?: listOf()){
+                (activity as MainActivity).navigateToFragment(
+                    MastersFragment.newInstance())
+            }
         binding.icProfile.setOnClickListener{
             (activity as MainActivity).navigateToFragment(ProfileFragment.newInstance())
         }
         binding.icClose.setOnClickListener{
             (activity as MainActivity).navigateToFragment(AuthorizationFragment.newInstance())
         }
+    }
 
-        loadServices()
+    private fun setError(message: String?) = with(binding){
+        ErrLayout.isVisible = message != null
+        textError.text = message
+    }
 
-        binding.RefreshServices.setOnRefreshListener {
-            binding.RefreshServices.isRefreshing = true
-            loadServices()
-            binding.RefreshServices.isRefreshing = false
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentServicesBinding.bind(view)
+        merge(
+            flowOf(Unit),
+            binding.RefreshServices.onRefreshFlow(),
+            binding.buttonError.onClickFlow()
+        )
+            .flatMapLatest {loadServices()}
+            .distinctUntilChanged()
+            .onEach{
+                when(it){
+                    is ScreenState.DataLoaded -> {
+                        setLoading(false)
+                        setError(null)
+                        setData(it.services)
+                    }
+                    is ScreenState.Error -> {
+                        setLoading(false)
+                        setError(it.error)
+                        setData(null)
+                    }
+                    ScreenState.Loading -> {
+                        setLoading(true)
+                        setError(null)
+                    }
+                }
+            }
+            .launchIn(lifecycleScope)
+
     }
     @ExperimentalSerializationApi
-    private fun loadServices() {
-        scope.launch {
-            val services = NetworkService.loadServices()
-            binding.rvServices.layoutManager = LinearLayoutManager(context)
-            binding.rvServices.adapter =
-                ServiceAdapter(services) {
-                    (activity as MainActivity).navigateToFragment(
-                        MastersFragment.newInstance())
-                }
-            binding.progressBar.visibility = GONE
-            binding.RefreshServices.isRefreshing = false
-        }
+    private fun loadServices() = flow {
+        emit(ScreenState.Loading)
+        val services = NetworkService.loadServices()
+        emit(ScreenState.DataLoaded(services))
     }
+        .catch{
+            emit(ScreenState.Error(getString(R.string.error)))
+        }
 }
