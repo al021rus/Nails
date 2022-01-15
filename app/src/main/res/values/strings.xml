@@ -11,4 +11,5 @@
 	<string name="Search">Поиск</string>
     <string name="username">Username</string>
     <string name="confirm_password">Confirm_password</string>
+    <string name="reviewsclients">Отзывы Клиентов</string>
 </resources>
