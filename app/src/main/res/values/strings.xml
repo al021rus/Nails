@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Nails</string>
+    <string name="registration">Registration</string>
+	<string name="Email"> Email</string>
+    <string name="Password"> Password</string>
+	<string name="login">Login</string>
+    <string name="Sign_up">Sign up</string>
+	<string name="Profile">Профиль</string>
+    <string name="userName">Имя</string>
+    <string name="enter">Применить</string>
+	<string name="Search">Поиск</string>
+    <string name="username">Username</string>
+    <string name="confirm_password">Confirm_password</string>
 </resources>
