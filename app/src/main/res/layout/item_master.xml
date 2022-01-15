@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:backgroundTint="@color/black">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/imageMaster"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="5dp"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/avatars"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/nameMaster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:gravity="center"
+            android:textSize="21sp"
+            android:layout_margin="5dp"
+            android:text="@tools:sample/first_names"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/imageMaster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/Position"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:lines="1"
+            android:text="Должность:"
+            android:textSize="24sp"
+            app:layout_constraintTop_toBottomOf="@+id/nameMaster"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/positionName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:lines="1"
+            android:text="Мастер по маникюру"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/Position"
+            app:layout_constraintTop_toBottomOf="@+id/nameMaster" />
+
+        <TextView
+            android:id="@+id/Experience"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:lines="1"
+            android:textStyle="bold"
+            android:text="Стаж:"
+            android:textSize="24sp"
+            app:layout_constraintTop_toBottomOf="@+id/Position"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/ExpTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:lines="1"
+            android:text="5лет"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/Experience"
+            app:layout_constraintTop_toBottomOf="@+id/positionName" />
+
+        <TextView
+            android:id="@+id/timetowork"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:lines="1"
+            android:text="Время работы:"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Experience" />
+
+        <TextView
+            android:id="@+id/workTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:lines="1"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:text="8.00-12.00"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/timetowork"
+            app:layout_constraintTop_toBottomOf="@+id/ExpTime" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

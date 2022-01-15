@@ -17,11 +17,12 @@
         android:inputType="textPersonName"
         android:padding="15dp"
         android:textStyle="bold"
+        android:background="@color/white"
         android:hint="@string/login"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/User_name" />
+        app:layout_constraintTop_toBottomOf="@+id/userName" />
 
     <EditText
         android:id="@+id/User_email"
@@ -31,6 +32,7 @@
         android:inputType="textEmailAddress"
         android:padding="15dp"
         android:textStyle="bold"
+        android:background="@color/white"
         android:hint="@string/Email"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,13 +40,14 @@
         app:layout_constraintTop_toBottomOf="@+id/User_secondname" />
 
     <EditText
-        android:id="@+id/User_name"
+        android:id="@+id/userName"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="15dp"
         android:inputType="textPersonName"
         android:padding="15dp"
         android:textStyle="bold"
+        android:background="@color/white"
         android:hint="@string/userName"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
