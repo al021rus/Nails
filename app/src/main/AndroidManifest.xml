@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Nails">
         <activity
-        android:name=".activity_registration"
+        android:name=".activity.ServicesActivity"
         android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
