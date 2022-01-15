@@ -2,6 +2,7 @@
     <string name="app_name">Nails</string>
     <string name="registration">Registration</string>
 	<string name="Email"> Email</string>
+    <string name="error"> Ошибка соединения!</string>
     <string name="Password"> Password</string>
 	<string name="login">Login</string>
     <string name="Sign_up">Sign up</string>

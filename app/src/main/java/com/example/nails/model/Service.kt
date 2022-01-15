@@ -1,9 +1,10 @@
 package com.example.nails.model
 
-import androidx.annotation.DrawableRes
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Service(
-    @DrawableRes val imageService:Int,
+    val imageServiceURL : String,
     val nameService : String,
     val priceCount : String,
     val placeCount : String,
